@@ -19,7 +19,7 @@ Setting is easy with only 2 steps.
 * Set a CloudFront distribution ID for this plugin
 
 
-[CloudFrontCacheClear]: https://it.kensan.net/cloudfront-cache-clear.html        "StaticPress S3と共存できるWordPressプラグインCloudFront cache clearを公開！"
+["StaticPress S3と共存できるWordPressプラグインCloudFront cache clearを公開！"](https://it.kensan.net/cloudfront-cache-clear.html)
 
 == Installation ==
 
