@@ -19,7 +19,7 @@ Setting is easy with only 2 steps.
 * Set a CloudFront distribution ID for this plugin
 
 
-[CloudFrontCacheClear]: https://it.kensan.net/cloudfront-cache-clear.html
+[CloudFrontCacheClear][https://it.kensan.net/cloudfront-cache-clear.html]
 
 == Installation ==
 
