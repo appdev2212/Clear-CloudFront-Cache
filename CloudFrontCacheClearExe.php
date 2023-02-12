@@ -1,13 +1,5 @@
 <?php
-/*
-  Plugin Name: CloudFrontCacheClear
-  Plugin URI:
-  Description: CloudFrontのキャッシュをクリアする
-  Version: 1.0.0
-  Author: Yamaimo
-  Author URI:https://it.kensan.net/
-  License: GPLv2
- */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if (is_plugin_active('staticpress-s3/plugin.php')) {
 	//有効状態なら実行する内容
 } else {
