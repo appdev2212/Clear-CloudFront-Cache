@@ -2,7 +2,7 @@
 /*
   Plugin Name: Clear CloudFront Cache
   Plugin URI:
-  Description: CloudFrontのキャッシュをクリアする
+  Description: 公開済みコンテンツのCloudFront上のキャッシュをクリアする
   Version: 1.0.0
   Author: Yamaimo
   Author URI:https://it.kensan.net/
@@ -15,7 +15,7 @@ class CloudFrontCacheClear
 
 
     const VERSION           = '1.0.0';
-    const PLUGIN_ID         = 'cloud-front-cache-clear';
+    const PLUGIN_ID         = 'clear-cloudfront-cache';
     const CREDENTIAL_ACTION = self::PLUGIN_ID . '-nonce-action';
     const CREDENTIAL_NAME   = self::PLUGIN_ID . '-nonce-key';
     const PLUGIN_DB_PREFIX  = self::PLUGIN_ID . '_';
@@ -43,8 +43,8 @@ class CloudFrontCacheClear
     function set_plugin_menu()
     {
         add_menu_page(
-            'CloudFront cache clear',           /* ページタイトル*/
-            'CloudFront cache clear',           /* メニュータイトル */
+            'Clear CloudFront Cache',           /* ページタイトル*/
+            'Clear CloudFront Cache',           /* メニュータイトル */
             'manage_options',         /* 権限 */
             'custom-index-banner',    /* ページを開いたときのURL */
             [$this, 'show_config_form'],       /* メニューに紐づく画面を描画するcallback関数 */
