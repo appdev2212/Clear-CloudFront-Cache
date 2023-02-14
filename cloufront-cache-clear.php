@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: CloudFrontCacheClear
+  Plugin Name: Clear CloudFront Cache
   Plugin URI:
   Description: CloudFrontのキャッシュをクリアする
   Version: 1.0.0
@@ -59,7 +59,7 @@ class CloudFrontCacheClear
 ?>
 
       <div class="wrap">
-        <h1>CloudFront cache clear</h1>
+        <h1>Clear CloudFront Cache</h1>
 
         <form action="" method='post' id="my-submenu-form">
             <?php wp_nonce_field(self::CREDENTIAL_ACTION, self::CREDENTIAL_NAME) ?>
