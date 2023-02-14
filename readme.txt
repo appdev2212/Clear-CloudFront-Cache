@@ -8,7 +8,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires PHP: 7.0
 
-CloudFront cache clear
+Clear CloudFront Cache
 
 == Description ==
 
@@ -19,13 +19,11 @@ Setting is easy with only 2 steps.
 * Set a CloudFront distribution ID for this plugin
 
 
-https://it.kensan.net/cloudfront-cache-clear.html
-
 == Installation ==
 
 1. From the WP admin panel, click “Plugins” -> “Add new”.
-2. In the browser input box, type “CloudFront cache clear”.
-3. Select the “CloudFront cache clear” plugin and click “Install”.
+2. In the browser input box, type “Clear CloudFront Cache”.
+3. Select the “Clear CloudFront Cache” plugin and click “Install”.
 4. Activate the plugin.
 5. Set IAM for AWS resources where WordPress is running
 IAM setting example
