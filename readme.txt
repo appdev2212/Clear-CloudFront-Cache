@@ -1,6 +1,6 @@
 === My Custom Style Css Manager ===
 Contributors: yamaimo
-Tags: cloudfront
+Tags: cloudfront, aws
 Requires at least: 6.1.1
 Tested up to: 6.1.1
 Stable tag: 1.0.0
