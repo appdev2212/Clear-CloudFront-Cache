@@ -2,8 +2,10 @@
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 if (is_plugin_active('staticpress-s3/plugin.php')) {
 	//有効状態なら実行する内容
+} elseif (is_plugin_active('staticpress-s3-master/plugin.php')) {
+
 } else {
-	include('aws.phar');	
+	include('aws/aws-autoloader.php');	
 }
 use Aws\CloudFront\CloudFrontClient;
 class CloudFrontCacheClearExe
@@ -35,7 +37,7 @@ class CloudFrontCacheClearExe
             if(isset($errorMsg)){
                 $message_html = '<div class="notice notice-success is-dismissible">';
                 $message_html .='<p>キャッシュ削除に失敗しました</p>';
-                $message_html .='<p>'.$errorMsg.'</p>';
+                $message_html .='<p>'.esc_html($errorMsg).'</p>';
                 $message_html .='</div>';
             } else {
                 $message_html =<<<EOF

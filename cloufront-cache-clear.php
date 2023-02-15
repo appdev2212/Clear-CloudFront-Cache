@@ -65,8 +65,8 @@ class CloudFrontCacheClear
             <?php wp_nonce_field(self::CREDENTIAL_ACTION, self::CREDENTIAL_NAME) ?>
 
             <p>
-              <label for="title">ディストリビューション：</label>
-              <input type="text" name="distribute" value="<?php echo$distribute ?>"/>
+              <label for="title">ディストリビューションID：</label>
+              <input type="text" name="distribute" value="<?php echo esc_html($distribute) ?>"/>
             </p>
 
             <p><input type='submit' value='保存' class='button button-primary button-large' name='save'></p>
@@ -88,20 +88,28 @@ class CloudFrontCacheClear
 	                // 保存処理
         	        $key   = 'distribute';
                 	$distribute = $_POST['distribute'];
-                                      
+                        // validation
+            			if(!preg_match('/^[a-zA-Z0-9]+$/', $distribute)){
+				            throw new ErrorException('英数字以外は入力できません');
+			            }
                 	update_option(self::PLUGIN_DB_PREFIX . $key, $distribute);      
-                
+              
     			        // 画面にメッセージを表示
 			            $message_html =<<<EOF
 <div class="notice notice-success is-dismissible">
 	<p>
-  ディストリビューションを保存しました
+  ディストリビューションIDを保存しました
 	</p>
 </div>
 EOF;
 		              print $message_html;
 		            } catch (Exception $ex) {
-			              echo $ex->getMessage ();
+                  $errorMsg =  $ex->getMessage ();
+                  $message_html = '<div class="notice notice-success is-dismissible">';
+                  $message_html .='<p>ディストリビューションIDの保存に失敗しました</p>';
+                  $message_html .='<p>'.esc_html($errorMsg).'</p>';
+                  $message_html .='</div>';
+                  echo $message_html;
 		            }
       	      } elseif(isset($_POST['clear'])) {
                   $distribute = get_option(self::PLUGIN_DB_PREFIX . 'distribute');
