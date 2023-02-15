@@ -87,7 +87,7 @@ class CloudFrontCacheClear
             	  try {
 	                // 保存処理
         	        $key   = 'distribute';
-                	$distribute = $_POST['distribute'];
+                	$distribute = htmlspecialchars($_POST['distribute']);
                         // validation
             			if(!preg_match('/^[a-zA-Z0-9]+$/', $distribute)){
 				            throw new ErrorException('英数字以外は入力できません');
