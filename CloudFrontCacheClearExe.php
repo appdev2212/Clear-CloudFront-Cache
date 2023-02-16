@@ -49,7 +49,7 @@ class CloudFrontCacheClearExe
 EOF;
 
             }
-            echo esc_html($message_html);
+            echo wp_kses_post($message_html);
         }
 
 	}

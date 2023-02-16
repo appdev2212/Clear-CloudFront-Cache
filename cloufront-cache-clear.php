@@ -110,7 +110,7 @@ EOF;
                   $message_html .='<p>'.esc_html($errorMsg).'</p>';
                   $message_html .='</div>';
 		            }
-              echo esc_html($message_html);
+              echo wp_kses_post($message_html);
       	      } elseif(isset($_POST['clear'])) {
                   $distribute = get_option(self::PLUGIN_DB_PREFIX . 'distribute');
                   CloudFrontCacheClearExe::exe($distribute);
