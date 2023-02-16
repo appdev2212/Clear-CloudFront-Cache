@@ -8,6 +8,7 @@
   Author URI:https://it.kensan.net/
   License: GPLv2
  */
+
 require_once('CloudFrontCacheClearExe.php');
 add_action('init', 'CloudFrontCacheClear::init');
 class CloudFrontCacheClear
@@ -87,7 +88,7 @@ class CloudFrontCacheClear
             	  try {
 	                // 保存処理
         	        $key   = 'distribute';
-                	$distribute = htmlspecialchars($_POST['distribute']);
+                	$distribute = esc_html($_POST['distribute']);
                         // validation
             			if(!preg_match('/^[a-zA-Z0-9]+$/', $distribute)){
 				            throw new ErrorException('英数字以外は入力できません');
@@ -102,15 +103,14 @@ class CloudFrontCacheClear
 	</p>
 </div>
 EOF;
-		              print $message_html;
 		            } catch (Exception $ex) {
                   $errorMsg =  $ex->getMessage ();
                   $message_html = '<div class="notice notice-success is-dismissible">';
                   $message_html .='<p>ディストリビューションIDの保存に失敗しました</p>';
                   $message_html .='<p>'.esc_html($errorMsg).'</p>';
                   $message_html .='</div>';
-                  echo $message_html;
 		            }
+              echo wp_kses_post($message_html);
       	      } elseif(isset($_POST['clear'])) {
                   $distribute = get_option(self::PLUGIN_DB_PREFIX . 'distribute');
                   CloudFrontCacheClearExe::exe($distribute);
