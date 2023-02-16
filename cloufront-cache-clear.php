@@ -88,7 +88,7 @@ class CloudFrontCacheClear
             	  try {
 	                // 保存処理
         	        $key   = 'distribute';
-                	$distribute = esc_html($_POST['distribute']);
+                	$distribute = wp_kses_post($_POST['distribute']);
                         // validation
             			if(!preg_match('/^[a-zA-Z0-9]+$/', $distribute)){
 				            throw new ErrorException('英数字以外は入力できません');
@@ -110,7 +110,7 @@ EOF;
                   $message_html .='<p>'.esc_html($errorMsg).'</p>';
                   $message_html .='</div>';
 		            }
-              echo wp_kses_post($message_html);
+              echo esc_html($message_html);
       	      } elseif(isset($_POST['clear'])) {
                   $distribute = get_option(self::PLUGIN_DB_PREFIX . 'distribute');
                   CloudFrontCacheClearExe::exe($distribute);
