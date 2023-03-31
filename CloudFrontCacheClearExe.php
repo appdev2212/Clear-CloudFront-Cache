@@ -12,7 +12,7 @@ class CloudFrontCacheClearExe
 {
 
 
-    function exe($distribute)
+    public static function exe($distribute)
     {
         if (is_admin() && is_user_logged_in()) {
 
